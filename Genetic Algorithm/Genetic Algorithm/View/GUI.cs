@@ -18,7 +18,7 @@ namespace Genetic_Algorithm
         /*GUI Variables Declared -> Related to ZedGraph*/
         RollingPointPairList GAPointsRPPL = new RollingPointPairList(1000); //GA Population List Points
         LineItem GAPointsLI;
-        RollingPointPairList EqPointsRPPL = new RollingPointPairList(10000); //Equation Function List Points
+        RollingPointPairList EqPointsRPPL = new RollingPointPairList(15000); //Equation Function List Points
         LineItem EqPointsLI;
         RollingPointPairList PCavgPointsRPPL = new RollingPointPairList(1000); //Performance Curve Population List Points
         LineItem PCavgPointsLI;
@@ -39,7 +39,8 @@ namespace Genetic_Algorithm
         public GUI()
         {
             InitializeComponent();
-            setConfig();
+            setInitialParameters();
+            setGraphSettings();
             GAPointsLI = zgcFunction.GraphPane.AddCurve("GA Points", GAPointsRPPL, Color.Blue, SymbolType.Circle);
             GAPointsLI.Line.IsVisible = false;
             EqPointsLI = zgcFunction.GraphPane.AddCurve("Equation", EqPointsRPPL, Color.LightBlue, SymbolType.Default);
@@ -48,10 +49,21 @@ namespace Genetic_Algorithm
             
         }
 
-        public void setConfig()
+        /*Sets intial values*/
+        private void setInitialParameters()
         {
-            //setGraphSettings();
-            btGo.Enabled = false;
+            numPopSize.Value = 70;
+            numNOG.Value = 20;
+            numPC.Value = 60;
+            numPM.Value = 1;
+            numRangeMin.Value = 0;
+            numRangeMax.Value = 511;
+            numGranularity.Value = 0;
+            rbTournament.Checked = true;
+            rbElitNo.Checked = true;
+            rbCO1P.Checked = true;
+            rbOpMin.Checked = true;
+            //cbFunctions.SelectedValue = 0;
         }
 
         /*Sets ZedGraph Scales*/
@@ -61,13 +73,13 @@ namespace Genetic_Algorithm
             zgcFunction.GraphPane.XAxis.Title.Text = "x";
             zgcFunction.GraphPane.YAxis.Title.Text = "f(x)";
 
-            zgcFunction.GraphPane.XAxis.Scale.Min = myGA.rangeMin;
-            zgcFunction.GraphPane.XAxis.Scale.Max = myGA.rangeMax;
+            zgcFunction.GraphPane.XAxis.Scale.Min = Convert.ToDouble(numRangeMin.Value)-20;
+            zgcFunction.GraphPane.XAxis.Scale.Max = Convert.ToDouble(numRangeMax.Value)+20;
             zgcFunction.GraphPane.XAxis.Scale.MaxAuto = true;
             zgcFunction.GraphPane.XAxis.Scale.MinorStep = 1;
             zgcFunction.GraphPane.XAxis.Scale.MajorStep = 100;
-            zgcFunction.GraphPane.YAxis.Scale.Min = -512;
-            zgcFunction.GraphPane.YAxis.Scale.Max = 512;
+            zgcFunction.GraphPane.YAxis.Scale.Min = -Convert.ToDouble(numRangeMax.Value)-20;
+            zgcFunction.GraphPane.YAxis.Scale.Max = Convert.ToDouble(numRangeMax.Value)+20;
             zgcFunction.GraphPane.YAxis.Scale.MinorStep = 25;
             zgcFunction.GraphPane.YAxis.Scale.MajorStep = 100;
             
@@ -77,12 +89,12 @@ namespace Genetic_Algorithm
             zgcPerformance.GraphPane.YAxis.Title.Text = "x";
 
             zgcPerformance.GraphPane.XAxis.Scale.Min = 0;
-            zgcPerformance.GraphPane.XAxis.Scale.Max = myGA.numberGenerations;
+            zgcPerformance.GraphPane.XAxis.Scale.Max = Convert.ToDouble(numNOG.Value);
             zgcPerformance.GraphPane.XAxis.Scale.MaxAuto = true;
             zgcPerformance.GraphPane.XAxis.Scale.MinorStep = 25;
             zgcPerformance.GraphPane.XAxis.Scale.MajorStep = 100;
-            zgcPerformance.GraphPane.YAxis.Scale.Min = myGA.rangeMin;
-            zgcPerformance.GraphPane.YAxis.Scale.Max = myGA.rangeMax;
+            zgcPerformance.GraphPane.YAxis.Scale.Min = Convert.ToDouble(numRangeMin.Value)-20;
+            zgcPerformance.GraphPane.YAxis.Scale.Max = Convert.ToDouble(numRangeMax.Value)+20;
             zgcPerformance.GraphPane.YAxis.Scale.MinorStep = 25;
             zgcPerformance.GraphPane.YAxis.Scale.MajorStep = 100;
             
@@ -91,6 +103,7 @@ namespace Genetic_Algorithm
         /*Creates the curve for the equation type 1*/
         public void setGraphFunction()
         {
+            setGraphSettings();
             EqPointsRPPL.Clear();
             double i = myGA.rangeMin;
             double j;
@@ -110,6 +123,11 @@ namespace Genetic_Algorithm
 
         private void btStart_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btGo_Click(object sender, EventArgs e)
+        {
             #region radio buttons parameters
             if (rbCOUn.Checked == true)
                 crossoverType = 0;
@@ -128,10 +146,7 @@ namespace Genetic_Algorithm
             else if (rbOpMax.Checked == true)
                 optimizationType = 1;
 
-            if(rbF1.Checked == true)
-                functionType = 1;
-            else if(rbF2.Checked == true)
-                functionType =2;
+            functionType = cbFunctions.SelectedIndex + 1;
             #endregion
 
             myGA = new GeneticAlgorithm(Convert.ToInt32(numPopSize.Value),
@@ -147,13 +162,6 @@ namespace Genetic_Algorithm
                                         Convert.ToInt32(numGranularity.Value),
                                         random);
             setGraphFunction();
-            btStart.Enabled = false;
-            btGo.Enabled = true;
-            setGraphSettings();
-        }
-
-        private void btGo_Click(object sender, EventArgs e)
-        {
             gaTimer.Enabled = true;
             rtbInfo.Clear();
             PCavgPointsRPPL.Clear();
@@ -195,14 +203,14 @@ namespace Genetic_Algorithm
                 btGo.Enabled = true;
                 nog_count = 0;
                 MessageBox.Show("GA Process has reached the end!");
-                btStart.Enabled = true;
+                btGo.Enabled = true;
             }
             
         }
 
         private void graphTimer_Tick(object sender, EventArgs e)
         {
-            rtbInfo.AppendText("Generation: " + nog_count + ") " + Math.Round(myGA.chromoValue.Average(), 2) + "\t" + myGA.chromoFitness.Average() + "\n");
+            rtbInfo.AppendText(nog_count + ") Xavg: " + Math.Round(myGA.chromoValue.Average(), 2) + "\tFxavg  " + Math.Round(Equation.F3x(myGA.chromoValue.Average()),2) + "\tFitness  " + Math.Round(myGA.chromoFitness.Average(),2) + "\n");
             
             GAPointsRPPL.Clear();
             for (int i = 0; i < myGA.populationSize; i++)
@@ -210,11 +218,11 @@ namespace Genetic_Algorithm
                 GAPointsRPPL.Add(myGA.chromoValue[i], Equation.set(myGA.functionType,myGA.chromoValue[i]));
             }
 
-            //PCavgPointsRPPL.Add(nog_count, myGA.chromoValue.Average());
-            //PCmaxPointsRPPL.Add(nog_count, myGA.chromoValue.Max());
+            PCavgPointsRPPL.Add(nog_count, myGA.chromoValue.Average());
+            PCmaxPointsRPPL.Add(nog_count, myGA.chromoValue.Max());
 
-            PCavgPointsRPPL.Add(nog_count, myGA.chromoFitness.Average());
-            PCmaxPointsRPPL.Add(nog_count, myGA.chromoFitness.Max());
+            //PCavgPointsRPPL.Add(nog_count, myGA.chromoFitness.Average());
+            //PCmaxPointsRPPL.Add(nog_count, myGA.chromoFitness.Max());
 
             zgcFunction.Invalidate();
             zgcPerformance.Invalidate();

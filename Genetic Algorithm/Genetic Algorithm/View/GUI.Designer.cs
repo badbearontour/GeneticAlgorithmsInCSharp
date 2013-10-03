@@ -34,7 +34,6 @@
             this.numRangeMin = new System.Windows.Forms.NumericUpDown();
             this.numRangeMax = new System.Windows.Forms.NumericUpDown();
             this.numGranularity = new System.Windows.Forms.NumericUpDown();
-            this.btStart = new System.Windows.Forms.Button();
             this.numPopSize = new System.Windows.Forms.NumericUpDown();
             this.numNOG = new System.Windows.Forms.NumericUpDown();
             this.numPC = new System.Windows.Forms.NumericUpDown();
@@ -64,9 +63,9 @@
             this.gbOptimization = new System.Windows.Forms.GroupBox();
             this.rbOpMax = new System.Windows.Forms.RadioButton();
             this.rbOpMin = new System.Windows.Forms.RadioButton();
-            this.gbFunctions = new System.Windows.Forms.GroupBox();
-            this.rbF2 = new System.Windows.Forms.RadioButton();
-            this.rbF1 = new System.Windows.Forms.RadioButton();
+            this.cbFunctions = new System.Windows.Forms.ComboBox();
+            this.gbFunction = new System.Windows.Forms.GroupBox();
+            this.gbChromoParameters = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.numRangeMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRangeMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numGranularity)).BeginInit();
@@ -79,21 +78,22 @@
             this.gbCrossoverType.SuspendLayout();
             this.gbParameters.SuspendLayout();
             this.gbOptimization.SuspendLayout();
-            this.gbFunctions.SuspendLayout();
+            this.gbFunction.SuspendLayout();
+            this.gbChromoParameters.SuspendLayout();
             this.SuspendLayout();
             // 
             // rtbInfo
             // 
             this.rtbInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbInfo.Location = new System.Drawing.Point(880, 427);
+            this.rtbInfo.Location = new System.Drawing.Point(850, 370);
             this.rtbInfo.Name = "rtbInfo";
-            this.rtbInfo.Size = new System.Drawing.Size(204, 196);
+            this.rtbInfo.Size = new System.Drawing.Size(309, 408);
             this.rtbInfo.TabIndex = 0;
             this.rtbInfo.Text = "";
             // 
             // btGo
             // 
-            this.btGo.Location = new System.Drawing.Point(1038, 392);
+            this.btGo.Location = new System.Drawing.Point(1023, 315);
             this.btGo.Name = "btGo";
             this.btGo.Size = new System.Drawing.Size(46, 23);
             this.btGo.TabIndex = 1;
@@ -103,7 +103,7 @@
             // 
             // numRangeMin
             // 
-            this.numRangeMin.Location = new System.Drawing.Point(129, 127);
+            this.numRangeMin.Location = new System.Drawing.Point(129, 19);
             this.numRangeMin.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -120,7 +120,7 @@
             // 
             // numRangeMax
             // 
-            this.numRangeMax.Location = new System.Drawing.Point(129, 153);
+            this.numRangeMax.Location = new System.Drawing.Point(129, 45);
             this.numRangeMax.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -134,15 +134,10 @@
             this.numRangeMax.Name = "numRangeMax";
             this.numRangeMax.Size = new System.Drawing.Size(47, 20);
             this.numRangeMax.TabIndex = 3;
-            this.numRangeMax.Value = new decimal(new int[] {
-            511,
-            0,
-            0,
-            0});
             // 
             // numGranularity
             // 
-            this.numGranularity.Location = new System.Drawing.Point(129, 179);
+            this.numGranularity.Location = new System.Drawing.Point(129, 71);
             this.numGranularity.Maximum = new decimal(new int[] {
             10,
             0,
@@ -152,44 +147,29 @@
             this.numGranularity.Size = new System.Drawing.Size(47, 20);
             this.numGranularity.TabIndex = 4;
             // 
-            // btStart
-            // 
-            this.btStart.Location = new System.Drawing.Point(985, 392);
-            this.btStart.Name = "btStart";
-            this.btStart.Size = new System.Drawing.Size(46, 23);
-            this.btStart.TabIndex = 5;
-            this.btStart.Text = "Start";
-            this.btStart.UseVisualStyleBackColor = true;
-            this.btStart.Click += new System.EventHandler(this.btStart_Click);
-            // 
             // numPopSize
             // 
             this.numPopSize.Location = new System.Drawing.Point(129, 24);
-            this.numPopSize.Name = "numPopSize";
-            this.numPopSize.Size = new System.Drawing.Size(47, 20);
-            this.numPopSize.TabIndex = 6;
-            this.numPopSize.Value = new decimal(new int[] {
-            50,
+            this.numPopSize.Maximum = new decimal(new int[] {
+            1000,
             0,
             0,
             0});
+            this.numPopSize.Name = "numPopSize";
+            this.numPopSize.Size = new System.Drawing.Size(47, 20);
+            this.numPopSize.TabIndex = 6;
             // 
             // numNOG
             // 
             this.numNOG.Location = new System.Drawing.Point(129, 49);
-            this.numNOG.Minimum = new decimal(new int[] {
-            1,
+            this.numNOG.Maximum = new decimal(new int[] {
+            1000,
             0,
             0,
             0});
             this.numNOG.Name = "numNOG";
             this.numNOG.Size = new System.Drawing.Size(47, 20);
             this.numNOG.TabIndex = 7;
-            this.numNOG.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
             // 
             // numPC
             // 
@@ -197,11 +177,6 @@
             this.numPC.Name = "numPC";
             this.numPC.Size = new System.Drawing.Size(47, 20);
             this.numPC.TabIndex = 8;
-            this.numPC.Value = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
             // 
             // numPM
             // 
@@ -209,21 +184,14 @@
             this.numPM.Name = "numPM";
             this.numPM.Size = new System.Drawing.Size(47, 20);
             this.numPM.TabIndex = 9;
-            this.numPM.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // rbRoulette
             // 
             this.rbRoulette.AutoSize = true;
-            this.rbRoulette.Checked = true;
             this.rbRoulette.Location = new System.Drawing.Point(6, 19);
             this.rbRoulette.Name = "rbRoulette";
             this.rbRoulette.Size = new System.Drawing.Size(65, 17);
             this.rbRoulette.TabIndex = 10;
-            this.rbRoulette.TabStop = true;
             this.rbRoulette.Text = "Roulette\r\n";
             this.rbRoulette.UseVisualStyleBackColor = true;
             // 
@@ -242,9 +210,9 @@
             // 
             this.gbSelection.Controls.Add(this.rbRoulette);
             this.gbSelection.Controls.Add(this.rbTournament);
-            this.gbSelection.Location = new System.Drawing.Point(880, 291);
+            this.gbSelection.Location = new System.Drawing.Point(1060, 5);
             this.gbSelection.Name = "gbSelection";
-            this.gbSelection.Size = new System.Drawing.Size(99, 60);
+            this.gbSelection.Size = new System.Drawing.Size(99, 68);
             this.gbSelection.TabIndex = 12;
             this.gbSelection.TabStop = false;
             this.gbSelection.Text = "Selection Type";
@@ -253,7 +221,7 @@
             // 
             this.gbElitism.Controls.Add(this.rbElitNo);
             this.gbElitism.Controls.Add(this.rbElitYes);
-            this.gbElitism.Location = new System.Drawing.Point(880, 356);
+            this.gbElitism.Location = new System.Drawing.Point(1060, 79);
             this.gbElitism.Name = "gbElitism";
             this.gbElitism.Size = new System.Drawing.Size(99, 65);
             this.gbElitism.TabIndex = 13;
@@ -263,12 +231,10 @@
             // rbElitNo
             // 
             this.rbElitNo.AutoSize = true;
-            this.rbElitNo.Checked = true;
             this.rbElitNo.Location = new System.Drawing.Point(6, 19);
             this.rbElitNo.Name = "rbElitNo";
             this.rbElitNo.Size = new System.Drawing.Size(39, 17);
             this.rbElitNo.TabIndex = 1;
-            this.rbElitNo.TabStop = true;
             this.rbElitNo.Text = "No";
             this.rbElitNo.UseVisualStyleBackColor = true;
             // 
@@ -288,7 +254,7 @@
             this.gbCrossoverType.Controls.Add(this.rbCO2P);
             this.gbCrossoverType.Controls.Add(this.rbCOUn);
             this.gbCrossoverType.Controls.Add(this.rbCO1P);
-            this.gbCrossoverType.Location = new System.Drawing.Point(985, 292);
+            this.gbCrossoverType.Location = new System.Drawing.Point(1060, 150);
             this.gbCrossoverType.Name = "gbCrossoverType";
             this.gbCrossoverType.Size = new System.Drawing.Size(99, 93);
             this.gbCrossoverType.TabIndex = 14;
@@ -320,12 +286,10 @@
             // rbCO1P
             // 
             this.rbCO1P.AutoSize = true;
-            this.rbCO1P.Checked = true;
             this.rbCO1P.Location = new System.Drawing.Point(6, 19);
             this.rbCO1P.Name = "rbCO1P";
             this.rbCO1P.Size = new System.Drawing.Size(58, 17);
             this.rbCO1P.TabIndex = 0;
-            this.rbCO1P.TabStop = true;
             this.rbCO1P.Text = "1 Point";
             this.rbCO1P.UseVisualStyleBackColor = true;
             // 
@@ -368,7 +332,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 181);
+            this.label6.Location = new System.Drawing.Point(9, 73);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 21;
@@ -377,7 +341,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 155);
+            this.label7.Location = new System.Drawing.Point(9, 47);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 13);
             this.label7.TabIndex = 20;
@@ -386,7 +350,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 129);
+            this.label8.Location = new System.Drawing.Point(9, 21);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 13);
             this.label8.TabIndex = 19;
@@ -395,12 +359,6 @@
             // gbParameters
             // 
             this.gbParameters.Controls.Add(this.numPopSize);
-            this.gbParameters.Controls.Add(this.label6);
-            this.gbParameters.Controls.Add(this.numRangeMin);
-            this.gbParameters.Controls.Add(this.label7);
-            this.gbParameters.Controls.Add(this.numRangeMax);
-            this.gbParameters.Controls.Add(this.label8);
-            this.gbParameters.Controls.Add(this.numGranularity);
             this.gbParameters.Controls.Add(this.label4);
             this.gbParameters.Controls.Add(this.numNOG);
             this.gbParameters.Controls.Add(this.label3);
@@ -408,9 +366,9 @@
             this.gbParameters.Controls.Add(this.label2);
             this.gbParameters.Controls.Add(this.numPM);
             this.gbParameters.Controls.Add(this.label1);
-            this.gbParameters.Location = new System.Drawing.Point(880, 12);
+            this.gbParameters.Location = new System.Drawing.Point(850, 4);
             this.gbParameters.Name = "gbParameters";
-            this.gbParameters.Size = new System.Drawing.Size(204, 205);
+            this.gbParameters.Size = new System.Drawing.Size(187, 134);
             this.gbParameters.TabIndex = 22;
             this.gbParameters.TabStop = false;
             this.gbParameters.Text = "GA Parameters";
@@ -426,12 +384,12 @@
             this.zgcFunction.ScrollMinX = 0D;
             this.zgcFunction.ScrollMinY = 0D;
             this.zgcFunction.ScrollMinY2 = 0D;
-            this.zgcFunction.Size = new System.Drawing.Size(862, 304);
+            this.zgcFunction.Size = new System.Drawing.Size(832, 384);
             this.zgcFunction.TabIndex = 23;
             // 
             // zgcPerformance
             // 
-            this.zgcPerformance.Location = new System.Drawing.Point(12, 319);
+            this.zgcPerformance.Location = new System.Drawing.Point(12, 394);
             this.zgcPerformance.Name = "zgcPerformance";
             this.zgcPerformance.ScrollGrace = 0D;
             this.zgcPerformance.ScrollMaxX = 0D;
@@ -440,7 +398,7 @@
             this.zgcPerformance.ScrollMinX = 0D;
             this.zgcPerformance.ScrollMinY = 0D;
             this.zgcPerformance.ScrollMinY2 = 0D;
-            this.zgcPerformance.Size = new System.Drawing.Size(862, 304);
+            this.zgcPerformance.Size = new System.Drawing.Size(832, 384);
             this.zgcPerformance.TabIndex = 24;
             // 
             // gaTimer
@@ -455,9 +413,9 @@
             // 
             this.gbOptimization.Controls.Add(this.rbOpMax);
             this.gbOptimization.Controls.Add(this.rbOpMin);
-            this.gbOptimization.Location = new System.Drawing.Point(1003, 218);
+            this.gbOptimization.Location = new System.Drawing.Point(850, 296);
             this.gbOptimization.Name = "gbOptimization";
-            this.gbOptimization.Size = new System.Drawing.Size(81, 68);
+            this.gbOptimization.Size = new System.Drawing.Size(99, 68);
             this.gbOptimization.TabIndex = 25;
             this.gbOptimization.TabStop = false;
             this.gbOptimization.Text = "Optimization";
@@ -476,55 +434,58 @@
             // rbOpMin
             // 
             this.rbOpMin.AutoSize = true;
-            this.rbOpMin.Checked = true;
             this.rbOpMin.Location = new System.Drawing.Point(9, 19);
             this.rbOpMin.Name = "rbOpMin";
             this.rbOpMin.Size = new System.Drawing.Size(66, 17);
             this.rbOpMin.TabIndex = 0;
-            this.rbOpMin.TabStop = true;
             this.rbOpMin.Text = "Minimum";
             this.rbOpMin.UseVisualStyleBackColor = true;
             // 
-            // gbFunctions
+            // cbFunctions
             // 
-            this.gbFunctions.Controls.Add(this.rbF2);
-            this.gbFunctions.Controls.Add(this.rbF1);
-            this.gbFunctions.Location = new System.Drawing.Point(880, 218);
-            this.gbFunctions.Name = "gbFunctions";
-            this.gbFunctions.Size = new System.Drawing.Size(117, 67);
-            this.gbFunctions.TabIndex = 26;
-            this.gbFunctions.TabStop = false;
-            this.gbFunctions.Text = "Functions";
+            this.cbFunctions.FormattingEnabled = true;
+            this.cbFunctions.Items.AddRange(new object[] {
+            "-|(x * Sin(Sqrt(|x|))|",
+            "x * Math.Sin(x/5)",
+            "((100 * Sin(x/5) + 75 * Sin(x/10)) - (50 * Sin(x/10))); ",
+            "(0.9*(x^1.15)) - (x^1.05) + 50*Sin(x/10))"});
+            this.cbFunctions.Location = new System.Drawing.Point(6, 13);
+            this.cbFunctions.Name = "cbFunctions";
+            this.cbFunctions.Size = new System.Drawing.Size(297, 21);
+            this.cbFunctions.TabIndex = 27;
             // 
-            // rbF2
+            // gbFunction
             // 
-            this.rbF2.AutoSize = true;
-            this.rbF2.Location = new System.Drawing.Point(9, 42);
-            this.rbF2.Name = "rbF2";
-            this.rbF2.Size = new System.Drawing.Size(72, 17);
-            this.rbF2.TabIndex = 1;
-            this.rbF2.Text = "x*Sin(x^2)";
-            this.rbF2.UseVisualStyleBackColor = true;
+            this.gbFunction.Controls.Add(this.cbFunctions);
+            this.gbFunction.Location = new System.Drawing.Point(850, 249);
+            this.gbFunction.Name = "gbFunction";
+            this.gbFunction.Size = new System.Drawing.Size(309, 41);
+            this.gbFunction.TabIndex = 28;
+            this.gbFunction.TabStop = false;
+            this.gbFunction.Text = "Function";
             // 
-            // rbF1
+            // gbChromoParameters
             // 
-            this.rbF1.AutoSize = true;
-            this.rbF1.BackColor = System.Drawing.SystemColors.Control;
-            this.rbF1.Checked = true;
-            this.rbF1.Location = new System.Drawing.Point(9, 19);
-            this.rbF1.Name = "rbF1";
-            this.rbF1.Size = new System.Drawing.Size(102, 17);
-            this.rbF1.TabIndex = 0;
-            this.rbF1.TabStop = true;
-            this.rbF1.Text = "- | x*Sin(Sqrt |x|) |";
-            this.rbF1.UseVisualStyleBackColor = false;
+            this.gbChromoParameters.Controls.Add(this.label8);
+            this.gbChromoParameters.Controls.Add(this.label6);
+            this.gbChromoParameters.Controls.Add(this.numGranularity);
+            this.gbChromoParameters.Controls.Add(this.numRangeMin);
+            this.gbChromoParameters.Controls.Add(this.numRangeMax);
+            this.gbChromoParameters.Controls.Add(this.label7);
+            this.gbChromoParameters.Location = new System.Drawing.Point(850, 141);
+            this.gbChromoParameters.Name = "gbChromoParameters";
+            this.gbChromoParameters.Size = new System.Drawing.Size(187, 102);
+            this.gbChromoParameters.TabIndex = 29;
+            this.gbChromoParameters.TabStop = false;
+            this.gbChromoParameters.Text = "Chromossome Parameters";
             // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 632);
-            this.Controls.Add(this.gbFunctions);
+            this.ClientSize = new System.Drawing.Size(1163, 791);
+            this.Controls.Add(this.gbChromoParameters);
+            this.Controls.Add(this.gbFunction);
             this.Controls.Add(this.gbOptimization);
             this.Controls.Add(this.gbElitism);
             this.Controls.Add(this.zgcPerformance);
@@ -532,11 +493,10 @@
             this.Controls.Add(this.gbParameters);
             this.Controls.Add(this.gbCrossoverType);
             this.Controls.Add(this.gbSelection);
-            this.Controls.Add(this.btStart);
             this.Controls.Add(this.btGo);
             this.Controls.Add(this.rtbInfo);
             this.Name = "GUI";
-            this.Text = "Form1";
+            this.Text = "Genetic Algorithm v2.0";
             ((System.ComponentModel.ISupportInitialize)(this.numRangeMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRangeMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numGranularity)).EndInit();
@@ -554,8 +514,9 @@
             this.gbParameters.PerformLayout();
             this.gbOptimization.ResumeLayout(false);
             this.gbOptimization.PerformLayout();
-            this.gbFunctions.ResumeLayout(false);
-            this.gbFunctions.PerformLayout();
+            this.gbFunction.ResumeLayout(false);
+            this.gbChromoParameters.ResumeLayout(false);
+            this.gbChromoParameters.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -567,7 +528,6 @@
         private System.Windows.Forms.NumericUpDown numRangeMin;
         private System.Windows.Forms.NumericUpDown numRangeMax;
         private System.Windows.Forms.NumericUpDown numGranularity;
-        private System.Windows.Forms.Button btStart;
         private System.Windows.Forms.NumericUpDown numPopSize;
         private System.Windows.Forms.NumericUpDown numNOG;
         private System.Windows.Forms.NumericUpDown numPC;
@@ -597,9 +557,9 @@
         private System.Windows.Forms.GroupBox gbOptimization;
         private System.Windows.Forms.RadioButton rbOpMax;
         private System.Windows.Forms.RadioButton rbOpMin;
-        private System.Windows.Forms.GroupBox gbFunctions;
-        private System.Windows.Forms.RadioButton rbF2;
-        private System.Windows.Forms.RadioButton rbF1;
+        private System.Windows.Forms.ComboBox cbFunctions;
+        private System.Windows.Forms.GroupBox gbFunction;
+        private System.Windows.Forms.GroupBox gbChromoParameters;
     }
 }
 

@@ -24,7 +24,16 @@ namespace Genetic_Algorithm
                         y = F2x(x);
                     }
                     break;
-
+                case 3:
+                    {
+                        y = F3x(x);
+                    }
+                    break;
+                case 4:
+                    {
+                        y = F4x(x);
+                    }
+                    break;
                 default:
                     {
                         y = F1x(x);
@@ -42,6 +51,16 @@ namespace Genetic_Algorithm
         public static double F2x(double x)
         {
             return (x * Math.Sin(x/5));
+        }
+
+        public static double F3x(double x)
+        {
+            return ((100 * Math.Sin(x/5) + 75 * Math.Sin(x/10)) - (50 * Math.Sin(x/10))); 
+        }
+
+        public static double F4x(double x)
+        {
+            return (0.9 * (Math.Pow(x, 1.15)) - (Math.Pow(x, 1.05)) + 50*Math.Sin(x/10));
         }
     }
 }

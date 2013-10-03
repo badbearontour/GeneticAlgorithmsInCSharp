@@ -20,19 +20,31 @@ namespace Genetic_Algorithm
                     {
                         case 1:
                         {
-                            y = F1xMin(x);
+                            y = Equation.F1x(x);
                         }
                         break;
 
                         case 2:
                         {
-                            y = F2xMin(x);
+                            y = Equation.F2x(x);
+                        }
+                        break;
+
+                        case 3:
+                        {
+                            y = Equation.F3x(x);
+                        }
+                        break;
+
+                        case 4:
+                        {
+                            y = Equation.F4x(x);
                         }
                         break;
 
                         default:
                         {
-                            y = F1xMin(x);
+                            y = Equation.F1x(x);
                         }
                         break;
                     }
@@ -45,19 +57,31 @@ namespace Genetic_Algorithm
                     {
                         case 1:
                         {
-                            y = F1xMax(x);
+                            y = -Equation.F1x(x);
                         }
                         break;
 
                         case 2:
                         {
-                            y = F2xMax(x);
+                            y = -Equation.F2x(x);
+                        }
+                        break;
+
+                        case 3:
+                        {
+                            y = -Equation.F3x(x);
+                        }
+                        break;
+
+                        case 4:
+                        {
+                            y = -Equation.F4x(x);
                         }
                         break;
 
                         default:
                         {
-                            y = F1xMax(x);
+                            y = -Equation.F1x(x);
                         }
                         break;
                     }
@@ -69,50 +93,40 @@ namespace Genetic_Algorithm
                     switch (functionType)
                     {
                         case 1:
-                        {
-                            y = F1xMin(x);
-                        }
-                        break;
+                            {
+                                y = Equation.F1x(x);
+                            }
+                            break;
 
                         case 2:
-                        {
-                            y = F2xMin(x);
-                        }
-                        break;
+                            {
+                                y = Equation.F2x(x);
+                            }
+                            break;
+
+                        case 3:
+                            {
+                                y = Equation.F3x(x);
+                            }
+                            break;
+
+                        case 4:
+                            {
+                                y = Equation.F4x(x);
+                            }
+                            break;
 
                         default:
-                        {
-                            y = F1xMin(x);
-                        }
-                        break;
+                            {
+                                y = Equation.F1x(x);
+                            }
+                            break;
                     }
                 }
                 break;
             }
             #endregion
             return y;
-        }
-
-
-        public static double F1xMin(double x)
-        {
-            return (Equation.F1x(x));
-        }
-        public static double F1xMax(double x)
-        {
-            return (-Equation.F1x(x)+1000);
-        }
-
-        public static double F2xMin(double x)
-        {
-            return (-Equation.F2x(x)+1000);
-        }
-
-        public static double F2xMax(double x)
-        {
-            return (Equation.F2x(x));
-        }
-
-        
+        }     
     }
 }

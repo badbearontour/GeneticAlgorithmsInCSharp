@@ -9,12 +9,12 @@ namespace Genetic_Algorithm
 {
     public static class Crossover
     {
-        public static readonly Dictionary<int, string> CrossoverType = new Dictionary<int, string>()
-        {
-            {0,"Uniform"},
-            {1,"OnePoint"},
-            {2, "TwoPoints"}
-        };
+        //public static readonly Dictionary<int, string> CrossoverType = new Dictionary<int, string>()
+        //{
+        //    {0,"Uniform"},
+        //    {1,"OnePoint"},
+        //    {2, "TwoPoints"}
+        //};
 
         public static List<string> doCrossover(int _crossoverType, List<string> _selectedChromossomes, int _ProbabilityCrossover, Random _random)
         {
