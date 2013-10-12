@@ -19,6 +19,50 @@ namespace Genetic_Algorithm
                     switch (functionType)
                     {
                         case 1:
+                            {
+                                y = -Equation.F1x(x);
+                            }
+                            break;
+
+                        case 2:
+                            {
+                                y = -Equation.F2x(x);
+                            }
+                            break;
+
+                        case 3:
+                            {
+                                y = -Equation.F3x(x);
+                            }
+                            break;
+
+                        case 4:
+                            {
+                                y = -Equation.F4x(x);
+                            }
+                            break;
+
+                        case 5:
+                            {
+                                y = -Equation.F5x(x);
+                            }
+                            break;
+
+                        default:
+                            {
+                                y = -Equation.F1x(x);
+                            }
+                            break;
+                    }
+                }
+                break;
+
+                case 1:
+                {
+                    switch (functionType)
+                    {
+                        
+                        case 1:
                         {
                             y = Equation.F1x(x);
                         }
@@ -42,46 +86,15 @@ namespace Genetic_Algorithm
                         }
                         break;
 
+                        case 5:
+                        {
+                            y = Equation.F5x(x);
+                        }
+                        break;
+
                         default:
                         {
                             y = Equation.F1x(x);
-                        }
-                        break;
-                    }
-                }
-                break;
-
-                case 1:
-                {
-                    switch (functionType)
-                    {
-                        case 1:
-                        {
-                            y = -Equation.F1x(x);
-                        }
-                        break;
-
-                        case 2:
-                        {
-                            y = -Equation.F2x(x);
-                        }
-                        break;
-
-                        case 3:
-                        {
-                            y = -Equation.F3x(x);
-                        }
-                        break;
-
-                        case 4:
-                        {
-                            y = -Equation.F4x(x);
-                        }
-                        break;
-
-                        default:
-                        {
-                            y = -Equation.F1x(x);
                         }
                         break;
                     }
@@ -94,31 +107,37 @@ namespace Genetic_Algorithm
                     {
                         case 1:
                             {
-                                y = Equation.F1x(x);
+                                y = -Equation.F1x(x);
                             }
                             break;
 
                         case 2:
                             {
-                                y = Equation.F2x(x);
+                                y = -Equation.F2x(x);
                             }
                             break;
 
                         case 3:
                             {
-                                y = Equation.F3x(x);
+                                y = -Equation.F3x(x);
                             }
                             break;
 
                         case 4:
                             {
-                                y = Equation.F4x(x);
+                                y = -Equation.F4x(x);
+                            }
+                            break;
+
+                        case 5:
+                            {
+                                y = -Equation.F5x(x);
                             }
                             break;
 
                         default:
                             {
-                                y = Equation.F1x(x);
+                                y = -Equation.F1x(x);
                             }
                             break;
                     }

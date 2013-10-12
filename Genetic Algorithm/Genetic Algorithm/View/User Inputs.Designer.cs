@@ -1,6 +1,6 @@
 ﻿namespace Genetic_Algorithm
 {
-    partial class GUI
+    partial class User_Inputs
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.rtbInfo = new System.Windows.Forms.RichTextBox();
             this.btGo = new System.Windows.Forms.Button();
             this.numRangeMin = new System.Windows.Forms.NumericUpDown();
             this.numRangeMax = new System.Windows.Forms.NumericUpDown();
@@ -56,8 +55,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.gbParameters = new System.Windows.Forms.GroupBox();
-            this.zgcFunction = new ZedGraph.ZedGraphControl();
-            this.zgcPerformance = new ZedGraph.ZedGraphControl();
             this.gaTimer = new System.Windows.Forms.Timer(this.components);
             this.graphTimer = new System.Windows.Forms.Timer(this.components);
             this.gbOptimization = new System.Windows.Forms.GroupBox();
@@ -82,20 +79,11 @@
             this.gbChromoParameters.SuspendLayout();
             this.SuspendLayout();
             // 
-            // rtbInfo
-            // 
-            this.rtbInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbInfo.Location = new System.Drawing.Point(850, 370);
-            this.rtbInfo.Name = "rtbInfo";
-            this.rtbInfo.Size = new System.Drawing.Size(309, 408);
-            this.rtbInfo.TabIndex = 0;
-            this.rtbInfo.Text = "";
-            // 
             // btGo
             // 
-            this.btGo.Location = new System.Drawing.Point(1023, 315);
+            this.btGo.Location = new System.Drawing.Point(240, 311);
             this.btGo.Name = "btGo";
-            this.btGo.Size = new System.Drawing.Size(46, 23);
+            this.btGo.Size = new System.Drawing.Size(46, 40);
             this.btGo.TabIndex = 1;
             this.btGo.Text = "Go";
             this.btGo.UseVisualStyleBackColor = true;
@@ -210,7 +198,7 @@
             // 
             this.gbSelection.Controls.Add(this.rbRoulette);
             this.gbSelection.Controls.Add(this.rbTournament);
-            this.gbSelection.Location = new System.Drawing.Point(1060, 5);
+            this.gbSelection.Location = new System.Drawing.Point(222, 13);
             this.gbSelection.Name = "gbSelection";
             this.gbSelection.Size = new System.Drawing.Size(99, 68);
             this.gbSelection.TabIndex = 12;
@@ -221,7 +209,7 @@
             // 
             this.gbElitism.Controls.Add(this.rbElitNo);
             this.gbElitism.Controls.Add(this.rbElitYes);
-            this.gbElitism.Location = new System.Drawing.Point(1060, 79);
+            this.gbElitism.Location = new System.Drawing.Point(222, 87);
             this.gbElitism.Name = "gbElitism";
             this.gbElitism.Size = new System.Drawing.Size(99, 65);
             this.gbElitism.TabIndex = 13;
@@ -254,7 +242,7 @@
             this.gbCrossoverType.Controls.Add(this.rbCO2P);
             this.gbCrossoverType.Controls.Add(this.rbCOUn);
             this.gbCrossoverType.Controls.Add(this.rbCO1P);
-            this.gbCrossoverType.Location = new System.Drawing.Point(1060, 150);
+            this.gbCrossoverType.Location = new System.Drawing.Point(222, 158);
             this.gbCrossoverType.Name = "gbCrossoverType";
             this.gbCrossoverType.Size = new System.Drawing.Size(99, 93);
             this.gbCrossoverType.TabIndex = 14;
@@ -366,40 +354,12 @@
             this.gbParameters.Controls.Add(this.label2);
             this.gbParameters.Controls.Add(this.numPM);
             this.gbParameters.Controls.Add(this.label1);
-            this.gbParameters.Location = new System.Drawing.Point(850, 4);
+            this.gbParameters.Location = new System.Drawing.Point(12, 12);
             this.gbParameters.Name = "gbParameters";
             this.gbParameters.Size = new System.Drawing.Size(187, 134);
             this.gbParameters.TabIndex = 22;
             this.gbParameters.TabStop = false;
             this.gbParameters.Text = "GA Parameters";
-            // 
-            // zgcFunction
-            // 
-            this.zgcFunction.Location = new System.Drawing.Point(12, 4);
-            this.zgcFunction.Name = "zgcFunction";
-            this.zgcFunction.ScrollGrace = 0D;
-            this.zgcFunction.ScrollMaxX = 0D;
-            this.zgcFunction.ScrollMaxY = 0D;
-            this.zgcFunction.ScrollMaxY2 = 0D;
-            this.zgcFunction.ScrollMinX = 0D;
-            this.zgcFunction.ScrollMinY = 0D;
-            this.zgcFunction.ScrollMinY2 = 0D;
-            this.zgcFunction.Size = new System.Drawing.Size(832, 384);
-            this.zgcFunction.TabIndex = 23;
-            // 
-            // zgcPerformance
-            // 
-            this.zgcPerformance.Location = new System.Drawing.Point(12, 394);
-            this.zgcPerformance.Name = "zgcPerformance";
-            this.zgcPerformance.ScrollGrace = 0D;
-            this.zgcPerformance.ScrollMaxX = 0D;
-            this.zgcPerformance.ScrollMaxY = 0D;
-            this.zgcPerformance.ScrollMaxY2 = 0D;
-            this.zgcPerformance.ScrollMinX = 0D;
-            this.zgcPerformance.ScrollMinY = 0D;
-            this.zgcPerformance.ScrollMinY2 = 0D;
-            this.zgcPerformance.Size = new System.Drawing.Size(832, 384);
-            this.zgcPerformance.TabIndex = 24;
             // 
             // gaTimer
             // 
@@ -413,7 +373,7 @@
             // 
             this.gbOptimization.Controls.Add(this.rbOpMax);
             this.gbOptimization.Controls.Add(this.rbOpMin);
-            this.gbOptimization.Location = new System.Drawing.Point(850, 296);
+            this.gbOptimization.Location = new System.Drawing.Point(12, 304);
             this.gbOptimization.Name = "gbOptimization";
             this.gbOptimization.Size = new System.Drawing.Size(99, 68);
             this.gbOptimization.TabIndex = 25;
@@ -452,7 +412,7 @@
             // gbFunction
             // 
             this.gbFunction.Controls.Add(this.cbFunctions);
-            this.gbFunction.Location = new System.Drawing.Point(850, 249);
+            this.gbFunction.Location = new System.Drawing.Point(12, 257);
             this.gbFunction.Name = "gbFunction";
             this.gbFunction.Size = new System.Drawing.Size(309, 41);
             this.gbFunction.TabIndex = 28;
@@ -467,7 +427,7 @@
             this.gbChromoParameters.Controls.Add(this.numRangeMin);
             this.gbChromoParameters.Controls.Add(this.numRangeMax);
             this.gbChromoParameters.Controls.Add(this.label7);
-            this.gbChromoParameters.Location = new System.Drawing.Point(850, 141);
+            this.gbChromoParameters.Location = new System.Drawing.Point(12, 149);
             this.gbChromoParameters.Name = "gbChromoParameters";
             this.gbChromoParameters.Size = new System.Drawing.Size(187, 102);
             this.gbChromoParameters.TabIndex = 29;
@@ -478,18 +438,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1163, 791);
+            this.ClientSize = new System.Drawing.Size(331, 383);
             this.Controls.Add(this.gbChromoParameters);
             this.Controls.Add(this.gbFunction);
             this.Controls.Add(this.gbOptimization);
             this.Controls.Add(this.gbElitism);
-            this.Controls.Add(this.zgcPerformance);
-            this.Controls.Add(this.zgcFunction);
             this.Controls.Add(this.gbParameters);
             this.Controls.Add(this.gbCrossoverType);
             this.Controls.Add(this.gbSelection);
             this.Controls.Add(this.btGo);
-            this.Controls.Add(this.rtbInfo);
             this.Name = "GUI";
             this.Text = "Genetic Algorithm v2.0";
             ((System.ComponentModel.ISupportInitialize)(this.numRangeMin)).EndInit();
@@ -518,7 +475,6 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox rtbInfo;
         private System.Windows.Forms.Button btGo;
         private System.Windows.Forms.NumericUpDown numRangeMin;
         private System.Windows.Forms.NumericUpDown numRangeMax;
@@ -545,8 +501,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox gbParameters;
-        private ZedGraph.ZedGraphControl zgcFunction;
-        private ZedGraph.ZedGraphControl zgcPerformance;
         private System.Windows.Forms.Timer gaTimer;
         private System.Windows.Forms.Timer graphTimer;
         private System.Windows.Forms.GroupBox gbOptimization;

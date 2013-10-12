@@ -11,7 +11,7 @@ using ZedGraph;
 
 namespace Genetic_Algorithm
 {
-    public partial class GUI : Form
+    public partial class Graphs : Form
     {
         
 
@@ -36,7 +36,7 @@ namespace Genetic_Algorithm
         int nog_count;
 
 
-        public GUI()
+        public Graphs()
         {
             InitializeComponent();
             setInitialParameters();

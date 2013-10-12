@@ -13,12 +13,9 @@ namespace Genetic_Algorithm
     public partial class Test : Form
     {
         Random _random = new Random();
-        List<string> offspring = new List<string>();
-        List<double> offsValue = new List<double>();
-        List<double> offFit = new List<double>();
-        List<int> pointer = new List<int>();
-        string garbage;
-        int point;
+        List<string> chromoP = new List<string>();
+        List<string> chromoC = new List<string>();
+        bool initflag = false;
 
         public Test()
         {
@@ -27,24 +24,34 @@ namespace Genetic_Algorithm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            garbage = "011010";
-            richTextBox1.AppendText(garbage + "\n");
+            richTextBox1.Clear();
+            richTextBox2.Clear();
+            chromoP.Clear();
+            chromoC.Clear();
+            initflag = false;
         }
 
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (initflag == true)
+            {
+                chromoC = Crossover.TwoPoints(chromoP, 50, _random);
+                richTextBox1.Clear();
+                richTextBox2.Clear();
+                for (int i = 0; i < chromoP.Count(); i++)
+                {
+                    richTextBox1.AppendText(chromoP[i] + "\n");
+                    richTextBox2.AppendText(chromoC[i] + "\n");
+                }
+                chromoP = chromoC;
+            }
+            else
+            {
+                chromoP = Chromossome.Creates(6, 0, 63, 0, _random);
+                initflag = true;
+            }
             
-           //if ((_random.NextDouble() * 100) < _probabilityMutation)
-            //{
-                point = _random.Next(0, garbage.Length);
-                richTextBox1.AppendText(point + "\n");
-                if (garbage[point] == '0')
-                    garbage = garbage.Substring(0, point) + "1" + garbage.Substring(point + 1, garbage.Length - point - 1);
-                else
-                    garbage = garbage.Substring(0, point) + "0" + garbage.Substring(point + 1, garbage.Length - point - 1);
-                richTextBox1.AppendText(garbage + "\n");
-            //}
         }
     }
 }

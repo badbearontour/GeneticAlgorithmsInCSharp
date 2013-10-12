@@ -62,6 +62,11 @@ namespace Genetic_Algorithm
         private static List<double> PSelection(List<double> _chromoFitness)
         {
             List<double> _chromoPSelection = new List<double>();
+
+            double offset = _chromoFitness.Min()+1;
+            for (int i = 0; i < _chromoFitness.Count(); i++)
+                _chromoFitness[i] += Math.Abs(offset);
+
             for (int i = 0; i < _chromoFitness.Count(); i++)
                 _chromoPSelection.Add(_chromoFitness[i] / _chromoFitness.Sum() * 100);
             return _chromoPSelection;
@@ -85,7 +90,12 @@ namespace Genetic_Algorithm
         {
             List<string> selectedGens = new List<string>();
 
-            
+            /*For tournament selection it was necessary to multiply fitness by -1*/
+            for (int i = 0; i < _chromoFitness.Count(); i++)
+            {
+                _chromoFitness[i] = -_chromoFitness[i];
+            }
+
             int criteria = 3;
             double compareFitness = 0;
 
@@ -113,30 +123,7 @@ namespace Genetic_Algorithm
                     }
                 }
             }
-
-            
-            
             return selectedGens;
         }
-
-
-        //public static List<Chromossome> Tournament(List<Chromossome> _listChromossome, Random _random, int tCriteria)
-        //{
-        //    List<Chromossome> newChromossomeList = new List<Chromossome>();
-        //    List<Chromossome> playerList = new List<Chromossome>();
-
-        //    while (newChromossomeList.Count() < _listChromossome.Count())
-        //    {
-        //        playerList.Clear();
-        //        for (int i = 0; i < tCriteria; i++)
-        //        {
-        //            playerList.Add(_listChromossome[_random.Next(0, _listChromossome.Count() + 1)]);
-        //        }
-        //        playerList.
-        //        playerList.Max(player => player.fitness);
-        //    }
-
-        //    return _listChromossome;
-        //}
     }
 }

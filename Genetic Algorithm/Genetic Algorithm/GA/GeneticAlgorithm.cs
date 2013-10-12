@@ -71,7 +71,7 @@ namespace Genetic_Algorithm
         public void Reproduction()
         {
             chromoGens = Crossover.doCrossover(crossoverType, chromoGens, probabilityCrossover, random);
-            chromoGens = Mutation.doMutation(1, chromoGens, probabilityMutation, random);
+            //chromoGens = Mutation.doMutation(1, chromoGens, probabilityMutation, random);
             chromoValue = Chromossome.getPopulationValues(chromoGens, rangeMin, rangeMax, granularity, random);
             chromoFitness = Chromossome.getPopulationFitness(functionType, optimizationType, chromoValue);
         }

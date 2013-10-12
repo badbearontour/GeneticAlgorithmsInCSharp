@@ -108,24 +108,26 @@ namespace Genetic_Algorithm
 
             for (int i = 0; i < _selectedChromossomes.Count(); i = i + 2)
             {
-                offspring.Add("");
-                offspring.Add("");
+                offspring.Add(_selectedChromossomes[i]);
+                offspring.Add(_selectedChromossomes[i + 1]);
 
                 if (_random.Next(0, 100) <= _ProbabilityCrossover)
                 {
-                    //if (_selectedChromossomes[i].Length == _selectedChromossomes[i+1].Length)
-                    //{
+
                     mask.Clear();
-                    mask.Add(_random.Next(0, _selectedChromossomes[i].Length));
-                    mask.Add(_random.Next(0, _selectedChromossomes[i].Length));
-                    //mask.Add(5); mask.Add(5);
+                    mask.Add(0);
+                    mask.Add(2);
+                    //mask.Add(_random.Next(0, _selectedChromossomes[i].Length));
+                    //mask.Add(_random.Next(0, _selectedChromossomes[i].Length));
                     mask.Sort();
 
-                    offspring[i] = _selectedChromossomes[i].Substring(0, mask[0]) + _selectedChromossomes[i + 1].Substring(mask[0], mask[1] - mask[0] + 1) + _selectedChromossomes[i].Substring(mask[1] + 1, _selectedChromossomes[i].Length - 1 - mask[1]);
-                    offspring[i + 1] = _selectedChromossomes[i + 1].Substring(0, mask[0]) + _selectedChromossomes[i].Substring(mask[0], mask[1] - mask[0] + 1) + _selectedChromossomes[i+1].Substring(mask[1] + 1, _selectedChromossomes[i+1].Length - 1 - mask[1]);
-                    //offspring[i] = _selectedChromossomes[i].Substring(0, mask[0]) + _selectedChromossomes[i + 1].Substring(mask[0], mask[1]-mask[0]);
-                    //offspring[i + 1] = _selectedChromossomes[i + 1].Substring(0, mask[0]) + _selectedChromossomes[i].Substring(mask[0], mask[1] - mask[0]);
-                    //}
+                    offspring[i] = _selectedChromossomes[i].Substring(0, mask[0]) + 
+                                   _selectedChromossomes[i + 1].Substring(mask[0], mask[1] - mask[0] + 1) + 
+                                   _selectedChromossomes[i].Substring(mask[1] + 1, _selectedChromossomes[i].Length - 1 - mask[1]);
+
+                    offspring[i + 1] = _selectedChromossomes[i + 1].Substring(0, mask[0]) + 
+                                       _selectedChromossomes[i].Substring(mask[0], mask[1] - mask[0] + 1) + 
+                                       _selectedChromossomes[i+1].Substring(mask[1] + 1, _selectedChromossomes[i+1].Length - 1 - mask[1]);
                 }
             }
             return offspring;
