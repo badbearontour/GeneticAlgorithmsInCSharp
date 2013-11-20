@@ -43,11 +43,11 @@ namespace Maintenance_of_Machines
         public GeneticAlgorithm(Random _random)
         {
             /*GA Parameters Variables*/
-            this.popsize = 200;
+            this.popsize = 1000;
             this.numgenerations = 20;
             this.probcrossover = 0.6;
             this.probmutation = 0.01;
-            this.elitism_counter = 0;
+            this.elitism_counter = 100;
 
             /*GA Lists Variables*/
             this.population_values = new List<List<string>>();
@@ -60,8 +60,36 @@ namespace Maintenance_of_Machines
             this.co_population_fitness = new List<double>();
 
             /*Maintenance of machiens variables*/
-            power_demand = new int[4]{ 80, 90, 65, 70 };
-            power_lost = new int[7]{ 20, 15, 35, 40, 15, 15, 10 };
+            power_demand = new int[4] { 80, 90, 65, 70 };
+            power_lost = new int[7] { 20, 15, 35, 40, 15, 15, 10 };
+
+            /*Random variable*/
+            this.random = _random;
+        }
+
+        /*Constructor*/
+        public GeneticAlgorithm(Random _random, int[] _power_demand, int[] _power_lost)
+        {
+            /*GA Parameters Variables*/
+            this.popsize = 1000;
+            this.numgenerations = 20;
+            this.probcrossover = 0.6;
+            this.probmutation = 0.01;
+            this.elitism_counter = 100;
+
+            /*GA Lists Variables*/
+            this.population_values = new List<List<string>>();
+            this.population_fitness = new List<double>();
+            this.elite_population_values = new List<List<string>>();
+            this.elite_population_fitness = new List<double>();
+            this.selec_population_values = new List<List<string>>();
+            this.selec_population_fitness = new List<double>();
+            this.co_population_values = new List<List<string>>();
+            this.co_population_fitness = new List<double>();
+
+            /*Maintenance of machiens variables*/
+            power_demand = _power_demand;
+            power_lost = _power_lost;
 
             /*Random variable*/
             this.random = _random;

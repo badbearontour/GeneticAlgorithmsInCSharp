@@ -22,14 +22,17 @@ namespace Maintenance_of_Machines
         public Central_Machinery()
         {
             InitializeComponent();
-            ga = new GeneticAlgorithm(random);
-            netpower = new double[4];
+            
         }
 
         private void btStart_Click(object sender, EventArgs e)
         {
+            int[] _power_demand = new int[4] { (int)pd1.Value, (int)pd2.Value, (int)pd3.Value, (int)pd4.Value };
+            int[] _power_machine = new int[7] { (int)pm1.Value, (int)pm2.Value, (int)pm3.Value, (int)pm4.Value, (int)pm5.Value, (int)pm6.Value, (int)pm7.Value};
+            //ga = new GeneticAlgorithm(random);
+            ga = new GeneticAlgorithm(random, _power_demand, _power_machine);
+            netpower = new double[4];
             ProcessGA_Timer.Enabled = true;
-            
         }
 
         private void CentralLightsProcess()
