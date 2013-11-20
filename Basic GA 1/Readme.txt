@@ -1,0 +1,1 @@
+﻿Basic GA applied to minimize a function

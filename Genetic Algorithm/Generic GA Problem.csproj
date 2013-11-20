@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{CD6B19C0-8D9B-449D-B957-54C80A491321}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>WindowsApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Generic_GA_Problem</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Genetic Algorithm\bin\Debug\de\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\Debug\es\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\Debug\fr\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\Debug\Genetic Algorithm.exe" />
+    <Content Include="Genetic Algorithm\bin\Debug\Genetic Algorithm.pdb" />
+    <Content Include="Genetic Algorithm\bin\Debug\Genetic Algorithm.vshost.exe" />
+    <Content Include="Genetic Algorithm\bin\Debug\hu\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\Debug\it\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\Debug\ja\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\Debug\pt\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\Debug\ru\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\Debug\sk\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\Debug\sv\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\Debug\tr\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\Debug\ZedGraph.dll" />
+    <Content Include="Genetic Algorithm\bin\Debug\ZedGraph.xml" />
+    <Content Include="Genetic Algorithm\bin\Debug\zh-cn\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\Debug\zh-tw\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\de\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\es\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\fr\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\hu\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\it\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\ja\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\pt\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\ru\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\sk\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\sv\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\tr\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\ZedGraph.dll" />
+    <Content Include="Genetic Algorithm\bin\ZedGraph.Web.dll" />
+    <Content Include="Genetic Algorithm\bin\ZedGraph.Web.XML" />
+    <Content Include="Genetic Algorithm\bin\ZedGraph.XML" />
+    <Content Include="Genetic Algorithm\bin\zh-cn\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\bin\zh-tw\ZedGraph.resources.dll" />
+    <Content Include="Genetic Algorithm\Genetic Algorithm.csproj" />
+    <Content Include="Genetic Algorithm\obj\Debug\Genetic Algorithm.csproj.FileListAbsolute.txt" />
+    <Content Include="Genetic Algorithm\obj\Debug\Genetic Algorithm.exe" />
+    <Content Include="Genetic Algorithm\obj\Debug\Genetic Algorithm.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Genetic Algorithm\GA\Chromossome.cs" />
+    <Compile Include="Genetic Algorithm\GA\Crossover.cs" />
+    <Compile Include="Genetic Algorithm\GA\Elitism.cs" />
+    <Compile Include="Genetic Algorithm\GA\Equation.cs" />
+    <Compile Include="Genetic Algorithm\GA\Fitness.cs" />
+    <Compile Include="Genetic Algorithm\GA\GeneticAlgorithm.cs" />
+    <Compile Include="Genetic Algorithm\GA\Mutation.cs" />
+    <Compile Include="Genetic Algorithm\GA\Operation.cs" />
+    <Compile Include="Genetic Algorithm\GA\Selection.cs" />
+    <Compile Include="Genetic Algorithm\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="Genetic Algorithm\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="Genetic Algorithm\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Genetic Algorithm\Program.cs" />
+    <Compile Include="Genetic Algorithm\Properties\AssemblyInfo.cs" />
+    <Compile Include="Genetic Algorithm\Properties\Resources.Designer.cs" />
+    <Compile Include="Genetic Algorithm\Properties\Settings.Designer.cs" />
+    <Compile Include="Genetic Algorithm\ViewModel\ModelView.cs" />
+    <Compile Include="Genetic Algorithm\View\Graphs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Genetic Algorithm\View\Graphs.Designer.cs">
+      <DependentUpon>Graphs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Genetic Algorithm\View\GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Genetic Algorithm\View\GUI.Designer.cs">
+      <DependentUpon>GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Genetic Algorithm\View\Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Genetic Algorithm\View\Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Genetic Algorithm\View\User Inputs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Genetic Algorithm\View\User Inputs.Designer.cs">
+      <DependentUpon>User Inputs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Inputs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Inputs.Designer.cs">
+      <DependentUpon>User Inputs.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Genetic Algorithm\bin\Debug\Genetic Algorithm.vshost.exe.manifest" />
+    <None Include="Genetic Algorithm\obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="Genetic Algorithm\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="Genetic Algorithm\obj\Debug\Genetic Algorithm.csproj.GenerateResource.Cache" />
+    <None Include="Genetic Algorithm\obj\Debug\Genetic Algorithm.csprojResolveAssemblyReference.cache" />
+    <None Include="Genetic Algorithm\Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Genetic Algorithm\obj\Debug\Genetic_Algorithm.GUI.resources" />
+    <EmbeddedResource Include="Genetic Algorithm\obj\Debug\Genetic_Algorithm.Properties.Resources.resources" />
+    <EmbeddedResource Include="Genetic Algorithm\obj\Debug\Genetic_Algorithm.Test.resources" />
+    <EmbeddedResource Include="Genetic Algorithm\Properties\Resources.resx" />
+    <EmbeddedResource Include="Genetic Algorithm\View\Graphs.resx">
+      <DependentUpon>Graphs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Genetic Algorithm\View\GUI.resx">
+      <DependentUpon>GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Genetic Algorithm\View\Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Genetic Algorithm\View\User Inputs.resx">
+      <DependentUpon>User Inputs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Inputs.resx">
+      <DependentUpon>User Inputs.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Genetic Algorithm\bin\Release\" />
+    <Folder Include="Genetic Algorithm\obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>
